@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:favoritestube/models/video.dart';
 
+//inserir sua chave de API gerada no Google API do youtube.
 const API_KEY = '';
 
 class Api {
