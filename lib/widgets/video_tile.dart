@@ -48,6 +48,7 @@ class VideoTile extends StatelessWidget {
                 ),
               ),
               StreamBuilder<Map<String, Video>>(
+                initialData: {},
                 stream: BlocProvider.of<FavoriteBloc>(context).outFav,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
