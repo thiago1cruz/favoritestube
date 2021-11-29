@@ -1,7 +1,10 @@
+import 'package:favoritestube/api.dart';
 import 'package:favoritestube/blocs/favorite_bloc.dart';
 import 'package:favoritestube/models/video.dart';
+import 'package:favoritestube/pages/video_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class FavoritesPage extends StatelessWidget {
   const FavoritesPage({Key? key}) : super(key: key);
@@ -25,7 +28,12 @@ class FavoritesPage extends StatelessWidget {
               return ListView(
                 children: snapshot.data!.values
                     .map((video) => InkWell(
-                          onTap: () {},
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => VideoPage(
+                                        idVideo: video.id,
+                                      ))),
                           onLongPress: () {
                             bloc.toggleFavorite(video: video);
                           },
